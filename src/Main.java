@@ -37,8 +37,13 @@ public class Main {
             first = Integer.parseInt(String.valueOf( rim_arab.get(query[0])));
             second = Integer.parseInt(String.valueOf( rim_arab.get(query[1])));
         } else if ( rim_arab.get(query[0])==null && rim_arab.get(query[1])==null) {
-            first = Integer.parseInt(String.valueOf(query[0]));
-            second = Integer.parseInt(String.valueOf(query[1]));
+            try {
+                first = Integer.parseInt(String.valueOf(query[0]));
+                second = Integer.parseInt(String.valueOf(query[1]));
+            }
+            catch (NumberFormatException e){
+                throw new Exception("Roman numbers must be in range from I to X!");
+            }
         }
         else {
             throw new Exception("Different number systems are used at the same time / Roman numbers must be in range from I to X!");
